@@ -25,7 +25,7 @@ def ask_for(thing):
     if result.strip() == '':
       typed('\tERROR: please provide a valid input.', 0.001)
     else:
-      return result.strip
+      return result.strip()
 
 # Returns proper pronoun for each case.
 def pronoun(id, subject):
