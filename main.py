@@ -3,21 +3,10 @@
 #
 # @author Jerry Zeng
 # @course ICS3UC
-# @date 2023/02/17 - LastModified
+# @date 2023/02/22 - LastModified
 ##
 
 ###*** DEFINITIONS ***#
-
-# Gets a value POLITELY for each prompt.
-def askFor(thing):
-  result = None
-  while True:
-    #typed(f"Please provide {thing}: ", speed=0.005, ending='')
-    result = input("Please provide " + thing + ": ")
-    if result.strip() == '':
-      print("\tERROR: please provide a valid input.")
-    else:
-      return result.strip()
 
 # Returns proper pronoun for each case.
 def pronoun(id, subject):
@@ -28,16 +17,16 @@ def pronoun(id, subject):
   else:
     return ["they", "them", "their(s)"][subject]
 
-# Prompts user to continue running the program by pressing enter.
-def pause():
-  input("[PRESS ENTER]")
+# Some prompt templates.
+pauseMsg = "[PRESS ENTER]"
+promptMsg = "Please provide "
 
 #*** INTRODUCTION ***#
 print("Welcome to an exciting game of...")
 print("MAD LIBS!!!")
 print()
 
-pause()
+input(pauseMsg)
 print()
 
 print("The rules of this game are simple: provide the words that I ", end="")
@@ -47,7 +36,7 @@ print()
 print("Are you ready? Let\'s begin!")
 print()
 
-pause()
+input(pauseMsg)
 print()
 
 #*** INPUT ***#
@@ -55,31 +44,31 @@ print('Following this message, provide input according to what the ', end='')
 print("prompt demands.")
 print("————————————————————")
 
-name = askFor("your name")
+name = input(promptMsg + "your name: ")
 
 # This loop continues looping until the user provides their gender.
 while True:
-  gender = askFor("your gender - male [m], female [f], other [nb]")
+  gender = input(promptMsg+"your gender - male [m], female [f], other [nb]: ")
   if gender not in ["m", "f", "nb"]:
     print("\tERROR: invalid input, please try again.")
   else:
     break
   
-celeb = askFor("the name of a famous person")
-month = askFor("a month")
-day = askFor("a day [number]")
-place = askFor("a place")
-action1 = askFor("an action verb [past tense]")
-action2 = askFor("an action verb [ending with \"-ing\"]")
-adjective = askFor("an adjective")
-emergency = askFor("an emergency service")
-food = askFor("a food")
-phone = askFor("an object")
-ride = askFor("any moving noun")
-obstacles = askFor("a noun [plural]")
-animals = askFor("an animal [plural]")
-event = askFor("an event (the...)")
-punishment = askFor("punishment [verb] (had to...)")
+celeb = input(promptMsg + "the name of a famous person: ")
+month = input(promptMsg + "a month: ")
+day = input(promptMsg + "a day [number]: ")
+place = input(promptMsg + "a place: ")
+action1 = input(promptMsg + "an action verb [past tense]: ")
+action2 = input(promptMsg + "an action verb [ending with \"-ing\"]: ")
+adjective = input(promptMsg + "an adjective: ")
+emergency = input(promptMsg + "an emergency service: ")
+food = input(promptMsg + "a food: ")
+phone = input(promptMsg + "an object: ")
+ride = input(promptMsg + "any moving noun: ")
+obstacles = input(promptMsg + "a noun [plural]: ")
+animals = input(promptMsg + "an animal [plural]: ")
+event = input(promptMsg + "an event (the...): ")
+punishment = input(promptMsg + "punishment [verb] (had to...): ")
 
 #*** OUTPUT ***#
 print()
@@ -87,7 +76,7 @@ print("Generating story.........")
 print("DONE.")
 print()
 
-pause()
+input(pauseMsg)
 print()
 
 # Title Heading
@@ -108,7 +97,7 @@ print(" to", pronoun(gender, 1) + "self", "pleasantly. The air was ", end="")
 print("warm with a nice crisp breeze that lightly wisped", name + "'s hair.")
 print()
 
-pause()
+input(pauseMsg)
 print()
 
 # "On the way to {place}, {name} saw {celebrity name} lying on the street.
@@ -131,7 +120,7 @@ print(name, "helps by", action2, "them and calling the", emergency, end="")
 print(" before continuing on", pronoun(gender, 2), "way to", place + ".")
 print()
 
-pause()
+input(pauseMsg)
 print()
 
 # "Walking to {place} is quite tiring for {him/her}. 'What should I eat for
@@ -149,7 +138,7 @@ print("As", pronoun(gender, 0), "walks into a store, ", end="")
 print(pronoun(gender, 0), "decides on " + food + ".")
 print()
 
-pause()
+input(pauseMsg)
 print()
 
 # "On the street, there was a great abundance of {animals}."
@@ -163,7 +152,7 @@ print("would be smart for", name, "to call using", pronoun(gender, 2), end=" ")
 print(phone, "to hail a ride on a(n)", ride, "to", place + ".")
 print()
 
-pause()
+input(pauseMsg)
 print()
 
 # "The ride was as comfortable as any ride on a(n) {transportation} would be, 
